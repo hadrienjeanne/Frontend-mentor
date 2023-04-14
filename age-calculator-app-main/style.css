@@ -1,0 +1,58 @@
+/* Color definition */
+:root {
+    --purple: hsl(259, 100%, 65%);
+    --light-red: hsl(0, 100%, 67%);
+    --white: hsl(0, 0%, 100%);
+    --off-white: hsl(0, 0%, 94%);
+    --light-grey: hsl(0, 0%, 86%);
+    --smokey-grey: hsl(0, 1%, 44%);
+    --off-black: hsl(0, 0%, 8%);
+}
+
+body {
+    background-color: var(--light-grey);
+}
+
+#container {
+    background-color: var(--white);
+    border-radius: 15px;
+    border-bottom-right-radius: 100px;
+    max-width: 900px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.form-wrapper {
+    margin: 5%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
+.form-day label {
+    grid-column: 1;
+    grid-row: 1;
+}
+.form-day input {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.form-month label{
+    grid-column: 2;
+    grid-row: 1;
+}
+.form-month input{
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.form-year label{
+    grid-column: 3;
+    grid-row: 1;
+}
+.form-year input{
+    grid-column: 3;
+    grid-row: 2;
+}
