@@ -42,10 +42,26 @@ function ageCalculation(birthdate) {
     return age;
 }
 
+function animateValue(obj, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      obj.innerHTML = Math.floor(progress * (end - start) + start);
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }
+
 function setAgeData(age) {
-    document.getElementById("result-years").children[0].innerHTML = age.years;
-    document.getElementById("result-months").children[0].innerHTML = age.months;
-    document.getElementById("result-days").children[0].innerHTML = age.days;
+    const yearsObj = document.getElementById("result-years").children[0];
+    animateValue(yearsObj, 0, age.years, 1000)
+    const monthsObj = document.getElementById("result-months").children[0];
+    animateValue(monthsObj, 0, age.months, 1000)
+    const daysObj = document.getElementById("result-days").children[0];
+    animateValue(daysObj, 0, age.days, 1000)
 }
 
 function treatForm(event) {
