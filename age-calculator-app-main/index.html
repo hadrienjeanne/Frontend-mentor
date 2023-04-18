@@ -17,48 +17,56 @@
 </head>
 <body>
   <div id="container">
-    <form action="" >
+    <form action="" class="hide-submit" >
         <div class="form-wrapper">
           <div class="form-day">
             <label for="day-input">Day</label><br>
-            <input type="text" id="day-input" name="day-input" value="DD"><br>
+            <input type="text" id="day-input" name="day-input" value="DD" required><br>
           </div>
           <div class="form-month">
             <label for="month-input">Month</label><br>
-            <input type="text" id="month-input" name="month-input" value="MM"><br>
+            <input type="text" id="month-input" name="month-input" value="MM" required><br>
           </div>
           <div class="form-year">
             <label for="year-input">Year</label><br>
-            <input type="text" id="year-input" name="year-input" value="YYYY"><br>
+            <input type="text" id="year-input" name="year-input" value="YYYY" required><br>
           </div>
-          <input type="submit" value="Submit">
+          <label>
+            <input type="submit" />
+            <img src="assets/images/icon-arrow.svg" id="round-submit-button" alt="submit button">
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44">
+              <g fill="none" stroke="#FFF" stroke-width="2">
+                <path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44"/>
+              </g>
+            </svg> -->
+          </label>
       </div>
     </form>    
     
     <div id="age-result">
       <div class="result-years">
-        <div class="result-number">
+        <span class="result-number">
           --
-        </div>
-        <div class="result-text">
+        </span>
+        <span class="result-text">
           years
-        </div>
+        </span>
       </div>
       <div class="result-months">
-        <div class="result-number">
+        <span class="result-number">
           --
-        </div>
-        <div class="result-text">
+        </span>
+        <span class="result-text">
           months
-        </div>
+        </span>
       </div>
       <div class="result-days">
-        <div class="result-number">
+        <span class="result-number">
           --
-        </div>
-        <div class="result-text">
+        </span>
+        <span class="result-text">
           days
-        </div>
+        </span>
       </div>
     </div>    
   </div>

@@ -9,8 +9,26 @@
     --off-black: hsl(0, 0%, 8%);
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap');
+
 body {
     background-color: var(--light-grey);
+    font-family: 'Poppins', sans-serif;
+    color: var(--off-black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.attribution {
+    position: fixed;
+    bottom: 0px;
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
 #container {
@@ -18,16 +36,39 @@ body {
     border-radius: 15px;
     border-bottom-right-radius: 100px;
     max-width: 900px;
+    max-height: 900px;
+    width: 50vw;
+    height: 50vh;
     display: block;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
+    padding: 5%;
 }
 
+/* Form Part */
 .form-wrapper {
-    margin: 5%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
+    border-bottom: 1px solid var(--light-grey);
+    padding-bottom: 5vh; 
+}
+
+input {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--off-black);
+    border: 1px solid var(--light-grey);
+    border-radius: 5px;
+    width: 4em;
+}
+
+label {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--smokey-grey);
+    font-variant-caps: all-petite-caps;
+    letter-spacing: 1px;
 }
 
 .form-day label {
@@ -56,3 +97,41 @@ body {
     grid-column: 3;
     grid-row: 2;
 }
+
+
+/* Submit Button */
+form.hide-submit input[type="submit"] { display: none;}
+
+#round-submit-button {
+    background-color: var(--purple);
+    border-radius: 100%;
+    padding: 10px;    
+    position: fixed;
+    right: 20vw;
+}
+
+/* Result Part */
+.result-number {
+    color: var(--purple);
+    font-size: 64px;
+    font-style: italic;
+    font-weight: 800;
+}
+
+.result-text {    
+    color: var(--off-black);
+    font-size: 72px;
+    font-style: italic;
+    font-weight: 800;
+}
+
+@media only screen and (max-width: 375) {
+    #container {
+        max-width: 350px;
+    }
+
+    #round-submit-button {
+        position: fixed;
+        right: 50vw;
+    }
+  }
