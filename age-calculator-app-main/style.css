@@ -100,14 +100,14 @@ label {
 
 
 /* Submit Button */
-/* form.hide-submit input[type="submit"] { display: none;} */
-
 #round-submit-button {
     background-color: var(--purple);
     border-radius: 100%;
-    padding: 10px;    
+    border-width: 0;
+    padding: 10px;  
     position: fixed;
     right: 20vw;
+    top: 35%;
 }
 
 /* Result Part */
