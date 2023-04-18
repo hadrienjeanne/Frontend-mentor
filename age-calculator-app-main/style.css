@@ -100,7 +100,7 @@ label {
 
 
 /* Submit Button */
-form.hide-submit input[type="submit"] { display: none;}
+/* form.hide-submit input[type="submit"] { display: none;} */
 
 #round-submit-button {
     background-color: var(--purple);
