@@ -46,6 +46,14 @@ body {
 }
 
 /* Form Part */
+.hidden {
+    visibility: hidden;
+}
+
+.error {
+    color: var(--light-red);   
+}
+
 .form-wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -61,6 +69,8 @@ input {
     border: 1px solid var(--light-grey);
     border-radius: 5px;
     width: 4em;
+    text-align: left;
+    padding: 0.3em;
 }
 
 label {
@@ -111,9 +121,13 @@ label {
 }
 
 /* Result Part */
+#age-result {
+    padding-top: 2%;
+}
+
 .result-number {
     color: var(--purple);
-    font-size: 64px;
+    font-size: 72px;
     font-style: italic;
     font-weight: 800;
 }
@@ -125,13 +139,37 @@ label {
     font-weight: 800;
 }
 
-@media only screen and (max-width: 375) {
+@media only screen and (max-width: 375px) {
     #container {
         max-width: 350px;
     }
 
+    input {
+        font-size: 16px;
+        width: 3em;
+    }
+    
+    label {
+        font-size: 8px;
+    }
+
     #round-submit-button {
-        position: fixed;
-        right: 50vw;
+        right: 45vw;
+    }
+    
+    #round-submit-button img {
+        width: 20px;
+    }
+
+    #age-result {
+        padding-top: 30%;
+    }
+
+    .result-number {
+        font-size: 32px;
+    }
+    
+    .result-text {    
+        font-size: 32px;
     }
   }

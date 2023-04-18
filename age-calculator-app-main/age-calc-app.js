@@ -5,11 +5,11 @@ function getFormData(event) {
     const birthMonth = formData.get("month-input");
     const birthYear = formData.get("year-input");
 
-    return birthMonth + "/" + birthDay + "/" + birthYear
+    return {month: birthMonth, day: birthDay, year:birthYear}
 }
 
 function ageCalculation(birthdate) {
-    var birthDate = new Date(birthdate);
+    var birthDate = new Date(birthdate.month + "/" + birthdate.day + "/" + birthdate.year);
     var today = new Date();
 
     var years = (today.getFullYear() - birthDate.getFullYear());
@@ -64,9 +64,43 @@ function setAgeData(age) {
     animateValue(daysObj, 0, age.days, 1000)
 }
 
+function validateForm(day, month, year) {
+    const today = new Date();
+    var errors = false
+
+    if (year === "") {
+        setVisible("year-error")
+    }
+    
+    if (month === "") {
+        setVisible("month-error")
+    }
+    
+    if (day === "") {
+        setVisible("day-error")
+    }
+
+    if (year > today.getFullYear()) {
+        setVisible("year-error")
+    }
+
+    return !errors;
+}
+
+function setVisible(id) {
+    document.getElementById(id).classList.remove('hidden');
+}
+
+function setHidden(id) {
+    document.getElementById(id).classList.add('hidden');
+}
+
 function treatForm(event) {
     const birthdate = getFormData(event);
-    const age = ageCalculation(birthdate);
-    setAgeData(age);
+    console.log(birthdate);
+    if (validateForm(birthdate.day, birthdate.month, birthdate.year)) {
+        const age = ageCalculation(birthdate);
+        setAgeData(age);
+    }
     return false;
 }

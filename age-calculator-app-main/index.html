@@ -23,15 +23,18 @@
         <div class="form-wrapper">
           <div class="form-day">
             <label for="day-input">Day</label><br>
-            <input type="text" id="day-input" name="day-input" value="DD" required><br>
+            <input type="text" inputmode="numeric" id="day-input" name="day-input" placeholder="DD"><br>
+            <span id="day-error" class="hidden error">This field is required</span>
           </div>
           <div class="form-month">
             <label for="month-input">Month</label><br>
-            <input type="text" id="month-input" name="month-input" value="MM" required><br>
+            <input type="text" inputmode="numeric" id="month-input" name="month-input" placeholder="MM"><br>
+            <span id="month-error" class="hidden error">This field is required</span>
           </div>
           <div class="form-year">
             <label for="year-input">Year</label><br>
-            <input type="text" id="year-input" name="year-input" value="YYYY" required><br>
+            <input type="text" inputmode="numeric" id="year-input" name="year-input" placeholder="YYYY"><br>
+            <span id="year-error" class="hidden error">This field is required</span>
           </div>
           <button type="submit" id="round-submit-button" onclick="treatForm(event);return false;">
             <img src="assets/images/icon-arrow.svg" alt="submit button">
