@@ -7,6 +7,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="./style.css">
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> -->
+  <script src="moment-with-locales.min.js"></script>
   <script src="age-calc-app.js"></script>
   
   <title>Frontend Mentor | Age calculator app</title>
@@ -22,19 +23,19 @@
     <form id="form" name="form">
         <div class="form-wrapper">
           <div class="form-day">
-            <label for="day-input">Day</label><br>
+            <label id="day-label" for="day-input">Day</label><br>
             <input type="text" inputmode="numeric" id="day-input" name="day-input" placeholder="DD"><br>
-            <span id="day-error" class="hidden error">This field is required</span>
+            <span id="day-error" class="error-msg hidden error">This field is required</span>
           </div>
           <div class="form-month">
-            <label for="month-input">Month</label><br>
+            <label id="month-label" for="month-input">Month</label><br>
             <input type="text" inputmode="numeric" id="month-input" name="month-input" placeholder="MM"><br>
-            <span id="month-error" class="hidden error">This field is required</span>
+            <span id="month-error" class="error-msg hidden error">This field is required</span>
           </div>
           <div class="form-year">
-            <label for="year-input">Year</label><br>
+            <label id="year-label" for="year-input">Year</label><br>
             <input type="text" inputmode="numeric" id="year-input" name="year-input" placeholder="YYYY"><br>
-            <span id="year-error" class="hidden error">This field is required</span>
+            <span id="year-error" class="error-msg hidden error">This field is required</span>
           </div>
           <button type="submit" id="round-submit-button" onclick="treatForm(event);return false;">
             <img src="assets/images/icon-arrow.svg" alt="submit button">

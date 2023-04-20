@@ -9,7 +9,7 @@ function getFormData(event) {
 }
 
 function ageCalculation(birthdate) {
-    var birthDate = new Date(birthdate.month + "/" + birthdate.day + "/" + birthdate.year);
+    var birthDate = new Date(birthdate.year, birthdate.month - 1, birthdate.day);
     var today = new Date();
 
     var years = (today.getFullYear() - birthDate.getFullYear());
@@ -66,36 +66,90 @@ function setAgeData(age) {
 
 function validateForm(day, month, year) {
     const today = new Date();
-    var errors = false
+    var errors = {
+        day: false,
+        month: false,
+        year: false
+    }
 
     if (year === "") {
-        setVisible("year-error")
+        errors.year = true;
+        setError("year", "This field is required", errors)
     }
     
     if (month === "") {
-        setVisible("month-error")
+        errors.month = true;
+        setError("month", "This field is required", errors)
     }
     
     if (day === "") {
-        setVisible("day-error")
+        errors.day = true;
+        setError("day", "This field is required", errors)
     }
 
     if (year > today.getFullYear()) {
-        setVisible("year-error")
+        errors.year = true;
+        setError("year", "Must be in the past", errors)
     }
 
-    return !errors;
+
+    var date = moment(year+'-'+month+'-'+day, 'YYYY-MM-DD');
+    console.log(date.isValid()); // true
+    // var date = new Date(year, month-1, day);
+    console.log(date);
+    if (!date instanceof Date || isNaN(date.valueOf()) && day != "" && month != "" && year != "") {
+        setError("day", "Must be a valid date", errors)
+        setError("month", "", errors)
+        setError("year", "", errors)
+        errors.day = true;
+        errors.month = true;
+        errors.year = true;
+    }
+
+
+    if (!errors.day) {
+        errors.day = false;
+        setValid("day", errors);
+    }
+    
+    if (!errors.month) {
+        errors.month = false;
+        setValid("month", errors);
+    }
+    
+    if (!errors.year) {
+        errors.year = false;
+        setValid("year", errors);
+    }
+    
+    if (!errors.day && !errors.month && !errors.year) {
+        return true;
+    } 
+    return false;
 }
 
-function setVisible(id) {
-    document.getElementById(id).classList.remove('hidden');
+function setError(id, msg) {
+    document.getElementById(id + "-error").classList.remove('hidden');
+    document.getElementById(id + "-error").innerHTML = msg;
+    document.getElementById(id + "-input").classList.add('red-border');
+    document.getElementById(id + "-label").classList.add('error');
+
 }
 
-function setHidden(id) {
-    document.getElementById(id).classList.add('hidden');
+function setValid(id) {
+    document.getElementById(id + "-error").classList.add('hidden');
+    document.getElementById(id + "-input").classList.remove('red-border');
+    document.getElementById(id + "-label").classList.remove('error');
+}
+
+function clearErrors() {
+    setValid("day-error");
+    setValid("month-error");
+    setValid("year-error");
 }
 
 function treatForm(event) {
+    event.preventDefault();
     const birthdate = getFormData(event);
     console.log(birthdate);
     if (validateForm(birthdate.day, birthdate.month, birthdate.year)) {

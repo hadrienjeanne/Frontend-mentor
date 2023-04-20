@@ -36,9 +36,9 @@ body {
     border-radius: 15px;
     border-bottom-right-radius: 100px;
     max-width: 900px;
-    max-height: 900px;
+    max-height: 1000px;
     width: 50vw;
-    height: 50vh;
+    height: 55vh;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -62,6 +62,10 @@ body {
     padding-bottom: 5vh; 
 }
 
+.red-border {
+    border: 1px solid var(--light-red);
+}
+
 input {
     font-size: 32px;
     font-weight: 700;
@@ -71,6 +75,7 @@ input {
     width: 4em;
     text-align: left;
     padding: 0.3em;
+    margin-bottom: 0.5em;
 }
 
 label {
