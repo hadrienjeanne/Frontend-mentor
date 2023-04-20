@@ -51,7 +51,11 @@ body {
 }
 
 .error {
-    color: var(--light-red);   
+    color: var(--light-red);
+}
+
+.error-msg {
+    font-size: 16px;
 }
 
 .form-wrapper {
@@ -176,5 +180,9 @@ label {
     
     .result-text {    
         font-size: 32px;
+    }
+
+    .error-msg {
+        font-size: 8px;
     }
   }
